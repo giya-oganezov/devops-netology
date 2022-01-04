@@ -1,0 +1,93 @@
+{
+  "main": {
+    "id": "6bd72bcbb86cd287",
+    "type": "split",
+    "children": [
+      {
+        "id": "d6dc00cf35e5b46a",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9a4a36b8d5e88f18",
+    "type": "split",
+    "children": [
+      {
+        "id": "c2dadbd98231f32f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "49419b74a65e7ae4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "e17d83a8d2675f41",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fb40fcd0a2efbfdc",
+    "type": "split",
+    "children": [
+      {
+        "id": "961873b664157059",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "91101a19d2e89bca",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "d6dc00cf35e5b46a",
+  "lastOpenFiles": [
+    "3.1. Работа в терминале/3.1 д.з..md",
+    "CONTRIBUTING.md",
+    "2.4. Инструменты Git/README.md",
+    "01-intro-01/README.md",
+    "Untitled.md"
+  ]
+}
