@@ -7,8 +7,11 @@
         "id": "d6dc00cf35e5b46a",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "3.1. Работа в терминале/3.2 д.з..md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -65,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "3.1. Работа в терминале/3.2 д.з..md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,6 +88,7 @@
   },
   "active": "d6dc00cf35e5b46a",
   "lastOpenFiles": [
+    "3.1. Работа в терминале/3.2 д.з..md",
     "3.1. Работа в терминале/3.1 д.з..md",
     "CONTRIBUTING.md",
     "2.4. Инструменты Git/README.md",
