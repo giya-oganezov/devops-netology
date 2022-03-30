@@ -25,7 +25,7 @@
 
 	Ответ:
 	
-		 команду kill -HUP процессу перечитать свои конфигурационные файлы без перезапуска.
+		 команда сat /dev/null > test.sh
 	
 		
 1.  Занимают ли зомби-процессы какие-то ресурсы в ОС (CPU, RAM, IO)?
@@ -38,6 +38,23 @@
     /usr/sbin/opensnoop-bpfcc
     
     На какие файлы вы увидели вызовы группы `open` за первую секунду работы утилиты? Воспользуйтесь пакетом `bpfcc-tools`для Ubuntu 20.04. Дополнительные [сведения по установке](https://github.com/iovisor/bcc/blob/master/INSTALL.md).
+	
+		vagrant@myhost:~$ sudo opensnoop-bpfcc -d 1
+		PID    COMM               FD ERR PATH
+		636    PLUGIN[proc]       22   0 /sys/class/power_supply
+		636    PLUGIN[cgroups]    19   0 /sys/fs/cgroup/cpu,cpuacct/system.slice/irqbalance.service/cpuacct.stat
+		636    PLUGIN[cgroups]    18   0 /sys/fs/cgroup/memory/system.slice/irqbalance.service/memory.stat
+		636    PLUGIN[cgroups]    22   0 /sys/fs/cgroup/memory/system.slice/irqbalance.service/memory.usage_in_bytes
+		636    PLUGIN[cgroups]    22   0 /sys/fs/cgroup/memory/system.slice/irqbalance.service/memory.failcnt
+		636    PLUGIN[cgroups]    21   0 /sys/fs/cgroup/blkio/system.slice/irqbalance.service/blkio.throttle.io_service_bytes
+		636    PLUGIN[cgroups]    21   0 /sys/fs/cgroup/blkio/system.slice/irqbalance.service/blkio.throttle.io_serviced
+		636    PLUGIN[cgroups]    19   0 /sys/fs/cgroup/cpu,cpuacct/system.slice/vboxadd-service.service/cpuacct.stat
+		636    PLUGIN[cgroups]    18   0 /sys/fs/cgroup/memory/system.slice/vboxadd-service.service/memory.stat
+		636    PLUGIN[cgroups]    22   0 /sys/fs/cgroup/memory/system.slice/vboxadd-service.service/memory.usage_in_bytes
+		636    PLUGIN[cgroups]    22   0 /sys/fs/cgroup/memory/system.slice/vboxadd-service.service/memory.failcnt
+		636    PLUGIN[cgroups]    21   0 /sys/fs/cgroup/blkio/system.slice/vboxadd-service.service/blkio.throttle.io_service_bytes
+		636    PLUGIN[cgroups]    21   0 /sys/fs/cgroup/blkio/system.slice/vboxadd-service.service/blkio.throttle.io_serviced
+		636    PLUGIN[cgroups]    19   0 /sys/fs/cgroup/cpu,cpuacct/system.slice/systemd-networkd.service/cpuacct.stat
     
 6.  Какой системный вызов использует `uname -a`? Приведите цитату из man по этому системному вызову, где описывается альтернативное местоположение в `/proc`, где можно узнать версию ядра и релиз ОС.
 7.  Чем отличается последовательность команд через `;` и через `&&` в bash? Например:
@@ -47,7 +64,15 @@
     root@netology1:~# test -d /tmp/some_dir && echo Hi
     root@netology1:~#
     
+		Ответ:
+	   	Команды, разделенные ; выполняются последовательно; оболочка ожидает завершения каждой команды по очереди. Статус возврата это статус выхода последней выполненной команды.
+		- в случае использования конструкции command1 && command2 выпвыполение command2 произойдет если, command1 завершиться успехом.
     Есть ли смысл использовать в bash `&&`, если применить `set -e`?
-    
-8.  Из каких опций состоит режим bash `set -euxo pipefail` и почему его хорошо было бы использовать в сценариях?
-9.  Используя `-o stat` для `ps`, определите, какой наиболее часто встречающийся статус у процессов в системе. В `man ps`ознакомьтесь (`/PROCESS STATE CODES`) что значат дополнительные к основной заглавной буквы статуса процессов. Его можно не учитывать при расчете (считать S, Ss или Ssl равнозначными).
+      
+	  	Ответ: 
+		В отличии от `&&`, при использовании `set -e` скрипт немедленно завершит работу, если любая команда выйдет с ошибкой
+	
+		
+1.  Из каких опций состоит режим bash `set -euxo pipefail` и почему его хорошо было бы использовать в сценариях?
+
+1.  Используя `-o stat` для `ps`, определите, какой наиболее часто встречающийся статус у процессов в системе. В `man ps`ознакомьтесь (`/PROCESS STATE CODES`) что значат дополнительные к основной заглавной буквы статуса процессов. Его можно не учитывать при расчете (считать S, Ss или Ssl равнозначными).
