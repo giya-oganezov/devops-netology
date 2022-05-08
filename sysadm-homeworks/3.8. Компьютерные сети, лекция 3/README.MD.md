@@ -96,16 +96,19 @@ root@ubuntu:~# ip a
 3. Проверьте открытые TCP порты в Ubuntu, какие протоколы и приложения используют эти порты? Приведите несколько примеров.
 Ответ:
 ```
-State          Recv-Q          Send-Q                    Local Address:Port                       Peer Address:Port           Process
-ESTAB          0               36                          10.129.0.13:ssh                      85.162.159.225:55058
+root@ubuntu:~# sudo ss -lntp
+State  Recv-Q Send-Q   Local Address:Port   Peer Address:Port Process
+LISTEN 0      4096     127.0.0.53%lo:53          0.0.0.0:*     users:(("systemd-resolve",pid=390,fd=13))
+LISTEN 0      128            0.0.0.0:22          0.0.0.0:*     users:(("sshd",pid=608,fd=3))
+LISTEN 0      128               [::]:22             [::]:*     users:(("sshd",pid=608,fd=4))
 ```
 4. Проверьте используемые UDP сокеты в Ubuntu, какие протоколы и приложения используют эти порты?
 Ответ:
 ```
-root@ubuntu:~# ss -ua
-State           Recv-Q          Send-Q                      Local Address:Port                     Peer Address:Port          Process
-UNCONN          0               0                           127.0.0.53%lo:domain                        0.0.0.0:*
-UNCONN          0               0                        10.129.0.13%eth0:bootpc                        0.0.0.0:*
+root@ubuntu:~# sudo ss -lnup
+State  Recv-Q Send-Q    Local Address:Port  Peer Address:Port Process
+UNCONN 0      0         127.0.0.53%lo:53         0.0.0.0:*     users:(("systemd-resolve",pid=390,fd=12))
+UNCONN 0      0      10.129.0.13%eth0:68         0.0.0.0:*     users:(("systemd-network",pid=1560,fd=22))
 ```
 5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали. 
 Ответ:
